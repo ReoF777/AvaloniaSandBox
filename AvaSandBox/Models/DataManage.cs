@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
-
 namespace AvaSandBox.Models;
 
 public class DataManage
@@ -32,19 +31,37 @@ public class DataManage
             {
             }
         }
+
+        // デモデータクラスでのxmlファイルの書き込み、読み込み
+        DemoData demo = new()
+        {
+            Place = "tokyo",
+            Value = 100
+        };
+        var serializer = new XmlSerializer(typeof(DemoData));
+        // 書き込み処理
+        // var sw = new StreamWriter(_path, true, new UTF8Encoding());
+        // serializer.Serialize(sw, demo);
+        // sw.Close();
+        // 読み込み処理
+        var sr = new StreamReader(_path, new UTF8Encoding());
+        DemoData? readDemo = (DemoData)serializer.Deserialize(sr)!;
+        sr.Close();
+        Console.WriteLine($"{readDemo.Place} and {readDemo.Value}");
         
-        // データ作成
-        IBirthData birthData = new UserData(5, 10, 5, "text", "test", 
-            "string second", "string third");
-        // IFood food = new UserData(5, 10, 5, "text", "test", 
+        
+        // // データ作成
+        // IBirthData birthData = new UserData(5, 10, 5, "text", "test", 
         //     "string second", "string third");
-        Console.WriteLine($"{birthData.Year} {birthData.Month}");
-        
-        // xmlファイル作成
-        var serializer = new XmlSerializer(typeof(IBirthData));
-        var sw = new StreamWriter(_path, false, Encoding.GetEncoding("utf-8"));
-        serializer.Serialize(sw, birthData);
-        sw.Close();
+        // // IFood food = new UserData(5, 10, 5, "text", "test", 
+        // //     "string second", "string third");
+        // Console.WriteLine($"{birthData.Year} {birthData.Month}");
+        //
+        // // xmlファイル作成
+        // var serializer = new XmlSerializer(typeof(IBirthData));
+        // var sw = new StreamWriter(_path, false, Encoding.GetEncoding("utf-8"));
+        // serializer.Serialize(sw, birthData);
+        // sw.Close();
         
     }
 }

@@ -134,3 +134,4 @@
 /Users/reof777/Documents/Trial/AvaSandBox/AvaSandBox/obj/Debug/net8.0/AvaSandBox.csproj.CopyComplete
 /Users/reof777/Documents/Trial/AvaSandBox/AvaSandBox/obj/Debug/net8.0/AvaSandBox.genruntimeconfig.cache
 /Users/reof777/Documents/Trial/AvaSandBox/AvaSandBox/obj/Debug/net8.0/ref/AvaSandBox.dll
+/Users/reof777/Documents/Trial/AvaSandBox/AvaSandBox/obj/Debug/net8.0/AvaSandBox.sourcelink.json
